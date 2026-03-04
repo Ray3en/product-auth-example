@@ -1,9 +1,9 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { productsApi } from '../api/features/products/products.api';
-import authSlice from './auth/auth.slice'
+import { productsApi } from '../../entities/product/api/index';
+import authSlice from '../../features/auth/model/auth.slice';
 import modalSlice from './modal/modal.slice'
 import localProductsSlice from './local-products/local-products.slice'
-import { authApi } from '../api/features/auth/auth.api';
+import { authApi } from '../../features/auth/api/index';
 
 const rootReducer = combineReducers({
     auth: authSlice,

@@ -1,16 +1,19 @@
 import { AgGridReact } from "ag-grid-react"
-import { useGetProductsQuery } from "../../shared/api/features/products/products.api"
 import { useMemo, useRef } from "react"
 import { AllCommunityModule, ModuleRegistry, type ColDef, type ICellRendererParams } from "ag-grid-community"
-import SearchFilter from "../../shared/components/filters/search.filter"
 import { useLocation, useNavigate, useSearchParams } from "react-router-dom"
-import Pagination from "../../shared/components/pagintation"
-import { SortDropdown } from "../../shared/components/filters/sort.filter"
+import Pagination from "../../shared/components/pagination/index"
 import { useDispatch, useSelector } from "react-redux"
-import { setOpenModal } from "../../shared/store/modal/modal.slice"
-import { logout } from "../../shared/store/auth/auth.slice"
-import type { IRootState } from "../../shared/store"
-import { useTableLimit } from "../../shared/hooks/use-table-limit"
+import { setOpenModal } from "../../shared/store/modal/modal.slice.ts"
+import type { IRootState } from "../../shared/store/index"
+import { useTableLimit } from "../../shared/hooks/use-table-limit";
+import type { SortOptions } from "../../entities/product/model/types.ts"
+import { useGetProductsQuery } from "../../entities/product/api/index.ts"
+import { MODAL_CONTENTS } from "../../app/constants/modal-contents.ts"
+import { logout } from "../../features/auth/model/auth.slice.ts"
+import { SortDropdown } from "../../features/sort-product/ui/index.tsx"
+import SearchFilter from "../../features/search-product/ui/index.tsx"
+
 ModuleRegistry.registerModules([AllCommunityModule]);
 
 type ProductRow = {
@@ -26,12 +29,6 @@ type ProductRow = {
     rating: number;
     actions?: React.ReactNode;
 
-}
-
-export type SortOptions = {
-    title: string;
-    name: string;
-    type: 'text' | 'number';
 }
 const sortOptions: SortOptions[] = [
     { title: 'title', name: 'Наименование', type: 'text' },
@@ -94,7 +91,7 @@ export const ProductsPage = () => {
     const handleCreateNewProduct = () => {
         dispatch(setOpenModal({
             title: 'Создать новый продукт',
-            content: 'CREATE_NEW_PRODUCT'
+            content: MODAL_CONTENTS.CREATE_NEW_PRODUCT
         }))
     }
 

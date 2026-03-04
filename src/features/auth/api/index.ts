@@ -1,8 +1,8 @@
 // src/modules/auth/api/auth.api.ts
 import { createApi } from "@reduxjs/toolkit/query/react";
-import { setCredentials } from "../../../store/auth/auth.slice";
-import { axiosBaseQuery } from "../..";
-import type { AuthResponse, LoginRequest } from "./types";
+import { setCredentials } from "../model/auth.slice";
+import { axiosBaseQuery } from "../../../shared/api";
+import type { AuthResponse, LoginRequest } from "../model/types";
 
 export const authApi = createApi({
     reducerPath: 'authApi',

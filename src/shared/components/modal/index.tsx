@@ -4,9 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import type { IRootState } from "../../store";
 import { setCloseModal } from "../../store/modal/modal.slice";
 import { useMemo } from "react";
-import CreateProductModalContent from "./content/create-new-product-content";
 import { Dialog, DialogPanel } from "@headlessui/react";
-
+import CreateProductModalContent from "../../../features/create-product/ui/create-new-product-content";
+import { MODAL_CONTENTS } from "../../../app/constants/modal-contents";
 
 
 const Modal = () => {
@@ -21,8 +21,8 @@ const Modal = () => {
 
     const Content = useMemo(() => {
         switch (content) {
-            case 'CREATE_NEW_PRODUCT':
-                return <CreateProductModalContent />
+            case MODAL_CONTENTS.CREATE_NEW_PRODUCT:
+                return <CreateProductModalContent/>
             default:
                 return null
         }

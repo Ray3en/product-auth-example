@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react"
 import { useSearchParams, useNavigate, useLocation } from "react-router-dom"
-import type { SortOptions } from "../../../pages/products-page"
+import type { SortOptions } from "../../../entities/product/model/types.ts"
 
 
 interface SortDropdownProps {

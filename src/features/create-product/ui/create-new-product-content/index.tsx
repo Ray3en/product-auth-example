@@ -1,11 +1,11 @@
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { createProductSchema, type CreateProductFormData } from "./form/create.product.form";
+import { createProductSchema, type CreateProductFormData } from "../../lib/create.product.form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import InputController from "../../../controllers/input.controller";
-import { setCloseModal } from "../../../../store/modal/modal.slice";
-import { showNotification } from "../../../../notification-toast/toast.notification";
-import { addNewLocalProduct } from "../../../../store/local-products/local-products.slice";
+import InputController from "../../../../shared/components/controllers/input.controller";
+import { setCloseModal } from "../../../../shared/store/modal/modal.slice";
+import { showNotification } from "../../../../shared/notification-toast/toast.notification";
+import { addNewLocalProduct } from "../../../../shared/store/local-products/local-products.slice";
 
 
 const CreateProductModalContent = () => {

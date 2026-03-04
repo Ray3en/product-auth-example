@@ -26,3 +26,9 @@ export interface ProductsRequest{
     order?: string
 
 }
+
+export type SortOptions = {
+    title: string;
+    name: string;
+    type: 'text' | 'number';
+}

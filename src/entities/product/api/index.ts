@@ -1,6 +1,6 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
-import { axiosBaseQuery } from "../..";
-import type { ApiProductsResponse, ProductsRequest } from "./types";
+import { axiosBaseQuery } from "../../../shared/api";
+import type { ApiProductsResponse, ProductsRequest } from "../model/types";
 
 const rootUrl = '/products'
 

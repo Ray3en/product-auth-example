@@ -1,0 +1,3 @@
+export const MODAL_CONTENTS = {
+    CREATE_NEW_PRODUCT: 'CREATE_NEW_PRODUCT'
+}

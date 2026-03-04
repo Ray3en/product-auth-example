@@ -1,8 +1,10 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { useGetMeQuery } from "../../../shared/api/features/auth/auth.api";
-import { logout } from "../../../shared/store/auth/auth.slice";
+import { useGetMeQuery } from "../../../features/auth/api";
+import { logout } from "../../../features/auth/model/auth.slice";
+
+// Работает больше как Guard, но решил оставить как provider
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     const dispatch = useDispatch()
